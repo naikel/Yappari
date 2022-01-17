@@ -1,0 +1,425 @@
+yappari (1.1.39) stable; urgency=low
+
+  * Fixed registration: changed id to be 20 bytes of size.
+  * Registration now uses HttpRequestv2.  HttpRequest was removed.
+  * Fixed bug where ChangeUserNameDialog wasn't being called after
+    a successful registration.
+  * Fixed reception of location messages with no URL.
+  * Fixed bug where groups and contacts weren't being updated in DB.
+  * Fixed margins of the ChatImageItem widget.
+  * Implemented push-to-talk messages.
+  * Added an option to select the voice notes codec. Users can select
+    between AAC (default) and AMR.
+
+ -- Scorpius <naikel@gmail.com>  Mon, 16 Sep 2013 14:38:11 -0430
+
+yappari (1.0.38) stable; urgency=low
+
+  * Added new option to use Enter as a Send Key (default enabled).
+  * Changed keepalive timer to send pings instead of no-ops.
+  * Implemented connection timeout timer in Connection class.
+  * Fixed registration once again and bumped version number.
+
+ -- Scorpius <naikel@gmail.com>  Wed, 14 Aug 2013 12:26:25 -0430
+
+yappari (1.0.37) stable; urgency=low
+
+  * Fixed bug where the composing notification wasn't being sent.
+  * Implemented contacts block/unblock.
+
+ -- Scorpius <naikel@gmail.com>  Sat, 27 Jul 2013 21:25:04 -0430
+
+yappari (1.0.36) stable; urgency=low
+
+  * Fixed registration once again. Now id is a constant.
+  * User aliases are now updated when they set or delete their picture.
+  * Removed use of method SendGetUserStatus since it doesn't work anymore.
+
+ -- Scorpius <naikel@gmail.com>  Wed, 19 Jun 2013 12:40:09 -0430
+
+yappari (0.0.35) unstable; urgency=low
+
+  * Fixed bug where profile pictures weren't being submitted to WA servers.
+  * Fixed bug where profile picture of myJid wasn't been refreshed in its 
+    entry in the roster.
+
+ -- Scorpius <naikel@gmail.com>  Mon, 10 Jun 2013 17:20:07 -0430
+
+yappari (0.0.34) unstable; urgency=low
+
+  * Fixed bug in Connection::fillArray where the read() process was timing out
+    at one second.  Timeout was increased to 30 seconds.
+  * readInt24() and readInt16() now use fillArray().
+  * Fixed bug in paste where links are being processed when they shouldn't.
+  * Added an emojiMapping hash table for lookups to display non-emoji Unicode 
+    characters properly.
+  * Removed emoji from notifications and windows titles since they can't be 
+    rendered properly there.
+  * Fixed bug where copy function in ChatTextEdit results in copying the whole
+    text and not just the selection.
+  * Implemented presence subscription/unsubscription.
+  * Implemented a workaround to a Qt bug where the message of the QStatusBar 
+    was disappearing after a context menu selection.
+  * Fixed bug where Connection methods were being called on an invalid object
+    causing crashes.
+  * Implemented group creation.
+  * Implemented group info window, with adding/removing participants capabilites
+    (only if the group was created by the user).
+  * Text follows QMaemo5Style now.
+  * SIM change detection implemented.
+
+ -- Scorpius <naikel@gmail.com>  Mon, 20 May 2013 10:28:44 -0430
+
+yappari (0.0.33) unstable; urgency=low
+
+  * Fixed handling of the fact that the signal readyRead() is not emitted if
+    there are still bytes in the buffer available to read.
+  * Proper handling of HTTP and SSL errors in ContactSyncer.
+  * Fixed a bug where the httpError signal was being called infinitely in a
+    loop when the remote server closed the connection.
+  * Fixed bug where ContactSyncer wasn't closing the socket before start to
+    parsing the synchronization data.
+
+ -- Scorpius <naikel@gmail.com>  Thu, 16 May 2013 23:34:20 -0430
+
+yappari (0.0.32) unstable; urgency=low
+
+  * Now the post install script kills Yappari if it's running to allow
+    "smoother" upgrades while Yappari is running.
+  * Fixed URLs starting in https:// that weren't being recognized as such.
+  * Fixed URLs not recognizing the percent sign (%) character.
+  * Contact synchronization now uses HttpRequestv2.
+  * Contact roster DB migrated to version 3 including a new photo_id column.
+  * Added Synchronization frequency in settings.
+  * Added an option to start Yappari when the phone is turned on.
+  * Added Account Info window with a button to go the payment site.
+  * Added Network Usage window with info about data consumption.
+  * Fixed emoji in nicknames not being shown in chats.
+  * Emoji is now supported in user names and statuses.
+  * Changed the status dialog to a window.
+  * Created class ChatTextEdit that represents a QTextEdit that handles
+    emoji correctly.
+  * Copy/Paste implemented.
+  * Contacts search through keyboard implented.
+  * Added Contact Info Window.
+  * Fixed upload progress bar bug. It was showing writes to the buffer
+    and not to the remote server.
+  * Fixed bug where ChatTextEdit grew more than 5 lines and the cursor
+    was not visible.
+  * Changed icons of the Select Multimedia dialog.
+
+ -- Scorpius <naikel@gmail.com>  Wed,  8 May 2013 12:56:18 -0430
+
+yappari (0.0.31) unstable; urgency=low
+
+  * Fixed bug about timestamps not being updated each day.
+  * Changed all spoofing keys including registration to Android.
+
+ -- Scorpius <naikel@gmail.com>  Sun, 28 Apr 2013 17:21:54 -0430
+
+yappari (0.0.30) unstable; urgency=low
+
+  * Added a confirmation dialog after selecting a multimedia file to send.
+  * Handling of the duplicate message.
+  * Added progress bar to ChatImageItem widget.
+  * Log database is now version 2 that includes local_file_uri column.
+  * ChatImageItem widget's View button now works only if local_file_uri is
+    defined.
+  * MediaDownload implemented.  All multimedia files (image, audio, video)
+    are supported.
+  * So far all multimedia HTTP requestis go through QSslSocket via 
+    HttpRequestv2.
+  * Media player and Image Viewer are now called via Dbus interfaces.
+
+ -- Scorpius <naikel@gmail.com>  Mon, 15 Apr 2013 12:48:48 -0430
+
+yappari (0.0.29) unstable; urgency=low
+
+  * Fixed bug where reading packets bigger than 1 KB.  This includes fixing
+    the offline multimedia bug.
+  * Implemented new multimedia upload method.
+
+ -- Scorpius <naikel@gmail.com>  Fri, 12 Apr 2013 13:37:29 -0430
+
+yappari (0.0.28) unstable; urgency=low
+
+  * Fixed bug where pop up conversation window on first message received was
+    not being saved.
+  * Fixed bug where chat window was not being shown after receiving a message
+    and the jid was muted.
+  * Implemented contact synchronization version 2.
+  * Contacts are now synchronized one at a time using signal/slots to avoid
+    application unresponsiveness.
+  * Implemented last online timestamp retrieval.
+
+ -- Scorpius <naikel@gmail.com>  Thu, 27 Dec 2012 12:49:50 -0430
+
+yappari (0.0.27) unstable; urgency=low
+
+  * Added more smileys.
+  * Fixed crash when loading an open chat from a contact that's not in the
+    roster DB.
+  * Yappari is optified now.
+  * Added uppercase extensions in the Open File dialog to send an image.
+  * Fixed some tiny memory leaks in ContactSyncer and QtMD5Digest.
+  * Open chats list now is sorted by the timestamp of the last message
+    received in descending order.
+  * Smileys are rendered in the Open chats list and the Contact Select dialog.
+  * Added a new setting to show the conversation window when a message is
+    received. The default is false (don't pop the window up).
+  * Implemented WhatsApp registration version 2.
+  * Removed the Constants class and defined those contants in
+    globalconstants.h.
+
+ -- Scorpius <naikel@gmail.com>  Sat,  1 Dec 2012 21:49:07 -0430
+
+yappari (0.0.26) unstable; urgency=low
+
+  * Fixed timestamp for delayed messages.
+  * Changed the open chat view from QListWidget to a QListView.  Now last
+    logged line and timestamp of it are shown in each entry.
+  * Implemented context menu for the items in the QListView.  Users can delete
+    chats now from the view selecting Delete Chat in that context menu.
+  * Changed QMap to QMultiMap in SelectContactDialog.
+  * Fixed creation of ghost contact s.us when the status was updated.
+  * Fixed detection of deleted adress book contacts when synchronizing.
+  * Added a confirmation message when clicking on Synchronize Now.
+  * Change Group Subject dialog now shows current subject in the QLineEdit
+    field.
+  * Open chats persistence is implemented.
+  * Added Global settings dialog.
+  * Added imei option in configuration file to spoof IMEI.
+  * Implemented voice registration.
+  * Unknown contacts appear now in the Create Chat dialog.
+  * Added option to delete contacts in Create Chat dialog (holding and
+    pressing on a contact).
+
+ -- Scorpius <naikel@gmail.com>  Sat, 27 Oct 2012 00:41:21 -0430
+
+yappari (0.0.25) unstable; urgency=low
+
+  * Fixed bug where the delete all messages confirmation dialog cleared history
+    anyway no matter what the user choice was.
+  * Fixed bug in readAttributes() in BinTreeNodeReader where attributes
+    weren't using the correct UTF8 encoding.
+
+ -- Scorpius <naikel@gmail.com>  Thu, 18 Oct 2012 19:26:19 -0430
+
+yappari (0.0.24) unstable; urgency=low
+
+  * Implemented WhatsApp protocol 1.2 with RC4 encryption.
+  * Implemented send of multimedia messages (pictures so far).
+  * Added mutex section in createChatWindow() to avoid two windows at the same
+    time.
+  * Settings are now a public and static QSettings member of Client.
+  * FMessage's data member is now always binary data.
+  * Added user verification to avoid running the application as root.
+  * Delivery receipts for notification messages are now sent to avoid
+    disconnections.
+  * Autoclose outstanding notifications of the active window when the screen
+    is unlocked.
+  * Added confirmation when user selects to clear the conversation's history.
+
+ -- Scorpius <naikel@gmail.com>  Fri, 12 Oct 2012 17:39:45 -0430
+
+yappari (0.0.23) unstable; urgency=low
+
+  * Last username now appears in the Change Username dialog.
+  * Fixed another registration bug.
+
+ -- Scorpius <naikel@gmail.com>  Sun, 30 Sep 2012 09:49:45 -0430
+
+yappari (0.0.22) unstable; urgency=low
+
+  * Reception of multimedia messages (just images).
+
+ -- Scorpius <naikel@gmail.com>  Fri, 28 Sep 2012 13:21:45 -0430
+
+yappari (0.0.21) unstable; urgency=low
+
+  * Users can send smileys.
+  * Username can be changed.
+  * Registration timeout changed from 2 to 5 minutes.
+
+ -- Scorpius <naikel@gmail.com>  Tue, 18 Sep 2012 13:14:00 -0430
+
+yappari (0.0.20) unstable; urgency=low
+
+  * Fixed registration.
+
+ -- Scorpius <naikel@gmail.com>  Sat, 15 Sep 2012 12:55:31 -0430
+
+yappari (0.0.19) unstable; urgency=low
+
+  * Workaround to make login work again.
+
+ -- Scorpius <naikel@gmail.com>  Mon, 10 Sep 2012 12:58:47 -0430
+
+yappari (0.0.18) unstable; urgency=low
+
+  * Fixed registration bug included in 0.0.17 only.
+  * ContactDisplayItem is now non-editable.
+
+ -- Scorpius <naikel@gmail.com>  Mon, 23 Jul 2012 15:40:56 -0430
+
+yappari (0.0.17) unstable; urgency=low
+
+  * All global constants are now in globalconstant.h
+  * Contacts synchronization.
+  * WARequest and ContactSyncer are now derived classes of HttpRequest.
+
+ -- Scorpius <naikel@gmail.com>  Sun,  8 Jul 2012 14:36:53 -0430
+
+yappari (0.0.16) unstable; urgency=low
+
+  * Changed Qt Mobility Contacts to native osso-abook to avoid some crashes.
+  * qApp->quit() is used to quit the application now.
+  * MainWindow::closeEvent() is overridden to issue hide() instead of close().
+  * Set SO_KEEPALIVE option in the socket to try detect disconnections in very
+    bad connections (like GPRS).
+  * Created the Status change dialog to update the user status.
+
+ -- Scorpius <naikel@gmail.com>  Thu,  5 Jul 2012 14:13:15 -0430
+
+yappari (0.0.15) unstable; urgency=low
+
+  * Implemented status updates.
+  * Fixed bug where availability of other users where triggering the creation
+    of empty contacts in the roster.
+
+ -- Scorpius <naikel@gmail.com>  Sat, 30 Jun 2012 13:46:14 -0430
+
+yappari (0.0.14) unstable; urgency=low
+
+  * Fixed crash when group offline messages were received before the group
+    list.
+  * Delivery receipts for multimedia messages are now sent to avoid
+    disconnections.
+  * Added settings mycolor, nickcolor and textcolor in the configuration file
+    for customization of the chat window.
+  * Display date in the messages if the message is from a previous date.
+  * Fixed bug where sometimes group users had the group subject as nickname.
+  * Changed TextEdit layout from LeftToRight to AutoLayout to aid languages
+    that their written form is from right to left.
+  * Exception classes are now derived from a new class Exception.
+  * I/O Exceptions are now more detailed in the status bar.
+  * < & > symbols are now correctly replaced in the contact name/nickname.
+
+ -- Scorpius <naikel@gmail.com>  Mon, 25 Jun 2012 17:38:05 -0430
+
+yappari (0.0.13) unstable; urgency=low
+
+  * Changed ProtocolTreeNodeList from QMap to QMultiMap to allow several
+    children with the same tag.
+  * Added basic smileys support.
+  * Implemented group features: change subject, leave group.
+  * Changed lock signal to display_status_ind.  When the display is off
+    notifications will always be sent.
+  * Contact picker doesn't show groups anymore.
+  * Now banners are shown when added to a group instead of an empty popup
+    window.
+  * Request of participating groups at application start is implemented.
+
+ -- Scorpius <naikel@gmail.com>  Mon, 18 Jun 2012 01:14:12 -0430
+
+yappari (0.0.12) unstable; urgency=low
+
+  * QTextEdit expands automatically when text gets bigger in a Conversations
+    fashion.
+  * Fixed bug with static SQLite database causing chat history to be mixed up
+    between contacts.
+  * Added a menu item to delete history in chat windows.
+
+ -- Scorpius <naikel@gmail.com>  Thu, 14 Jun 2012 18:12:53 -0430
+
+yappari (0.0.11) unstable; urgency=low
+
+  * Fixed registration bug where login was being sent empty if the user was
+    already registered.
+  * Fixed badly rename of contacts in the second message of a chat window.
+  * Discarded the use of libnotify and now uses D-Bus directly to create
+    notifications. Also notifications now are threaded and grouped.
+  * Change the chat window QLineEdit for QTextEdit.  Hacks were written to
+    intercep the return key in both physical keyboard and virtual keyboard.
+  * Signals composing and paused are sent when the user starts and stop typing
+    respectively.
+  * Basic chat history implemented.
+  * Created ChatArea in order to be able to add several kind of widgets and 
+    also handles scrolling.
+
+ -- Scorpius <naikel@gmail.com>  Thu,  7 Jun 2012 18:46:38 -0430
+
+yappari (0.0.10) unstable; urgency=low
+
+  * Fixed crash when contacts have non-ASCII characters and generate a
+    notification.
+  * Notifications haven been rewritten.  Now it only uses hildon-notify which
+    is faster. LED Notification has been enabled.
+  * The username returned from a successful registration is now used to login
+    instead of constructing one everytime from country code and phone number.
+  * Moved the log file to ~/.config/scorpius/yappari.log while Yappari is
+    alpha.
+  * Added ability to detect network changes between two active networks. Maemo
+    will still show the Disconnect or Change connection dialog.
+  * All time and date shown uses system locale now.
+  * Contacts are created with the alias if they have sent a message to the
+    user and are not currently in the contact list
+  * Online and typing status indicators have been implemented.
+  * Basic group support added.
+  * Donate menu added.
+  * Delayed messages now display correct timestamp.
+
+ -- Scorpius <naikel@gmail.com>  Mon,  4 Jun 2012 17:08:43 -0430
+
+yappari (0.0.9) unstable; urgency=low
+
+  * Fixed connection change detection bug.
+  * Notifications are always sent when the screen is locked.
+
+ -- Scorpius <naikel@gmail.com>  Mon,  4 Jun 2012 12:56:56 -0430
+
+yappari (0.0.8) unstable; urgency=low
+
+  * Notifications (without LED alert) have been implemented.
+  * Fixed bug when status of messages no longer in the chat window where
+    received.
+  * Implemented D-Bus interface method isRunning() to detect if the
+    application is already running and avoid running it twice.
+  * Contact retreiving now uses a filter to retrieve contacts that have phone
+    numbers in international format only.
+  * Major housecleaning.
+
+ -- Scorpius <naikel@gmail.com>  Sun,  3 Jun 2012 19:55:47 -0430
+
+yappari (0.0.7) unstable; urgency=low
+
+  * Fixed registration that wasn't considering success-attached replies.
+
+ -- Scorpius <naikel@gmail.com>  Fri,  1 Jun 2012 15:59:58 -0430
+
+yappari (0.0.6) unstable; urgency=low
+
+  * Fixed settings bug.
+
+ -- Scorpius <naikel@gmail.com>  Fri,  1 Jun 2012 14:31:28 -0430
+
+yappari (0.0.5) unstable; urgency=low
+
+  * Fixed registration bug.
+
+ -- Scorpius <naikel@gmail.com>  Fri,  1 Jun 2012 13:07:33 -0430
+
+yappari (0.0.4) unstable; urgency=low
+
+  * Exceptions are now caught when calling read()
+  * Log file for debugging.
+  * SMS Registration implemented.
+  * Status menu applet button is now hildonized.
+
+ -- Scorpius <naikel@gmail.com>  Fri,  1 Jun 2012 04:35:55 -0430
+
+yappari (0.0.3) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Scorpius <naikel@gmail.com>  Wed, 30 May 2012 15:22:01 -0430

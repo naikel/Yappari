@@ -1,0 +1,84 @@
+<b>Thank you for installing Yappari!</b><br><br>
+If you like this application and want to see more updates consider contributing to this project by clicking on the Donate button.<br><br>
+<b>New in this version 1.1.49:</b><br>
+<li>&bull; Fixed some bugs.</li>
+<br>
+<b>New in 1.1.48:</b><br>
+<li>&bull; Some of the most popular Windows Phone/iPhone emojis where fixed. There are still hundreds left to fix.</li>
+<br>
+<b>New in 1.1.47:</b><br>
+<li>&bull; Setting a profile picture works again. It wasn't working because WhatsApp now wants a thumbnail picture along with the full sized profile picture.</li>
+<li>&bull; Fixed missing emojis.</li>
+<li>&bull; Group notifications now indicate the group name instead of the participant name.</li>
+<li>&bull; Some modifications were made to avoid GUI freezes and high CPU usage.  You would only notice the difference if you have a bad connection.</li>
+<br>
+<b>New in 1.1.46:</b><br>
+<li>&bull; Fixed bug: Download button wasn't being re-enabled after a socket error occurred.</li>
+<li>&bull; Bumped maximum file of media sharing to 16 MB.</li>
+<li>&bull; You can now press Shift-Enter to add new lines.</li>
+<li>&bull; Implemented retry button for failed uploads.</li>
+<li>&bull; Last folder used to select profile picture is now remembered.</li>
+<li>&bull; Added <b>forward</b> of text and media messages through the context menu (long press).</li>
+<br>
+<b>New in 1.1.45:</b><br>
+<li>&bull; Fixed bug: Removing contacts wasn't working.</li>
+<li>&bull; Fixed bug: Some emoji weren't properly displayed.</li>
+<li>&bull; Added option to auto-close the emoji dialog after selection. The default is now <b>false</b> so you can select several emojis at the same time.</li>
+<li>&bull; Added a recent emoji tab in the emoji selection dialog.</li>
+<br>
+<b>New in 1.1.44:</b><br>
+<li>&bull; Fixed bug: Status and group icons were not being synchronized.</li>
+<li>&bull; Fixed a weird bug were Yappari was unable to open some JPEG files.</li>
+<br>
+<b>New in 1.1.43:</b><br>
+<li>&bull; Fixed bug: Photos were not being synchronized.</li>
+<li>&bull; Fixed bug: Wrong detection of arrow keys in Non-english keyboards.</li>
+<li>&bull; Fixed bug: If ghost contact + is removed it won' t appear again.</li>
+<br>
+<b>New in 1.1.42:</b><br>
+<li>&bull; Fixed contact synchronization.</li>
+<li>&bull; Fixed registration.</li>
+<li>&bull; Now when a message is received and the scroll bar of the chat window is not at the bottom then autoscrolling is disabled.</li>
+<li>&bull; Fixed bug: Input field were not being resized after deleting more than 5 lines of text.</li>
+<li>&bull; Last folder used to send multimedia is now remembered.</li>
+<br>
+<b>New in 1.1.41:</b><br>
+<li>&bull; Fixed bug: All media was being shown as <i>[voice note]<i> in the open conversations list.</li>
+<br>
+<b>New in 1.1.40:</b><br>
+<li>&bull; Fixed bug: Cache folder where voice notes are stored weren't being created automatically.</li>
+<br>
+<b>New in 1.1.39:</b><br>
+<li>&bull; <b>Push-To-Talk implemented.</b> Just press and hold the send button, start talking, and release when done.</li>
+<li>&bull; Implemented indication that the recipient of a voice note has listened to it (a little green microphone to the left of the double green checkmark).</li>
+<li>&bull; You can select the quality of the voice notes you send in the Settings dialog.</li>
+<li>&bull; Fixed registration.</li>
+<li>&bull; Fixed bug: The <i>Go</i> button didn't work on some locations.</li>
+<li>&bull; Some other minor bugs fixed.</li>
+<br>
+<b>New in 1.0.38:</b><br>
+<li>&bull; Fixed registration... again.</li>
+<li>&bull; Implemented setting to turn off the sending message when Enter is pressed feature.</li>
+<li>&bull; Location sharing is received successfully now.</li>
+<li>&bull; Better network disconnection detection.</li>
+<br>
+<b>New in 1.0.37:</b><br>
+<li>&bull; Fixed bug where typing/stopped typing notifications weren't being sent.</li>
+<li>&bull; Implemented block/unblock of contacts.</li>
+<br>
+<b>New in 1.0.36:</b><br>
+<li>&bull; Fixed registration once again.</li>
+<li>&bull; Fixed status bug in contact details windows.</li>
+<br>
+<b>New in 0.0.35:</b><br>
+<li>&bull; <b>Full group support.</b>  You can now create groups and add/remove members of the groups you have created.</li>
+<li>&bull; Group info option implemented.  Press and hold over a group and select <i>Group Info<i>.</li>
+<li>&bull; SIM card change detection. If you change your SIM card you're asked if you want to register the new number or continue using the old number.</li>
+<li>&bull; Text now follows current Maemo theme.</li>
+<li>&bull; Fixed a bug where people with slow connections were getting a lot of connection errors.</li>
+<li>&bull; Unicode text wasn't properly shown and sometimes caused crashes. That's fixed.</li>
+<li>&bull; Fixed the bug where the Copy function was copying the whole input field and not only the selection.</li>
+<li>&bull; Removed emoji from notifications bubbles and windows titles since they can't be properly rendered there.</li>
+<li>&bull; Contact and Group info windows are dynamic: If some attribute of the contact/group changes while you're viewing it you'll see the change immediately.</li>
+<li>&bull; Fixed the disappearing status bar bug where the status bar disappeared after selecting an option in the context menu.</li>
+<li>&bull; Other minor bug fixes.</li>
